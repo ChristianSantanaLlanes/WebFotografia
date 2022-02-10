@@ -1,0 +1,117 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} {{album.nombre}} {% endblock %}
+
+{% block content %}
+    <!-- CONTENT -->
+    <div class="fotofly_fn_content">
+    
+    	
+		<div class="fotofly_fn_portfolio_single">
+			<div class="fotofly_fn_portfolio_single_inner">
+				<div class="container">
+					<div class="portfolio_single">
+						
+						<!-- BREADCRUMBS -->
+						<div class="fotofly_fn_breadcrumbs">
+							<div class="fotofly_fn_breadcrumbs_content">
+								<div class="container">
+									<p>
+										<a href="index.php">Home</a>
+										/
+										<a href="portfolio1.html">Portfolios</a>
+										/
+										<span>{{album.nombre}}</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- /BREADCRUMBS -->
+
+						<div class="list">
+							<ul class="fotofly_fn_masonry">
+								{% for foto in fotos %}
+								<li class="fotofly_fn_masonry_in">
+									<div class="single">
+										<img src="{{foto.foto.url}}" alt="" />
+									</div>
+								</li>
+								{% endfor %}
+								
+							</ul>
+						</div>
+
+						<div class="info">
+							<p>{{album.descripcion}}</p>
+						</div>
+
+						<div class="fotofly_fn_social_icons">
+							<label>Share this:</label>
+							<ul>
+								<li>
+									<a href="#"><i class="xcon-facebook-1"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="xcon-twitter-1"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="xcon-instagram"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="xcon-pinterest-1"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="xcon-gplus-1"></i></a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="fotofly_fn_prevnext">
+							<div class="prevnext_inner fotofly_fn_miniboxes">
+								<div class="arrow fotofly_fn_minibox">
+									<div class="prev">
+										<div class="pp">
+											<p>
+												<img class="svg" src="img/svg/left-arrow.svg" alt="" />
+												<span>Previous</span>
+											</p>
+										</div>
+										<h3><a href="#">Beautiful Lakes</a></h3>
+									</div>
+								</div>
+								<div class="arrow fotofly_fn_minibox">
+									<div class="next">
+										<div class="pp">
+											<p>
+												<span>Next</span>
+												<img class="svg" src="img/svg/left-arrow.svg" alt="" />
+											</p>
+										</div>
+										<h3><a href="#">Miraculous Forests</a></h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						 <!-- FOOTER -->
+						<footer class="fotofly_fn_footer">
+							<div class="copyright">
+								<span>Copyright 2017. Designed by <a href="#">Frenify</a></span>
+							</div>
+						</footer>
+						<!-- /FOOTER -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+    	
+    </div>
+    <!-- /CONTENT -->
+    
+	<a class="totop" href="#"><span class="line"></span></a>
+	
+</div>
+<!-- / WRAPPER ALL -->
+
+{% endblock %}

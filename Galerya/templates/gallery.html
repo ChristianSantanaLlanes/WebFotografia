@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Galeria {% endblock %}    
+{% block content %}
+    <!-- CONTENT -->
+    <div class="fotofly_fn_content">
+    	
+    	<div class="fotofly_fn_gallery">
+    		<div class="fotofly_fn_gallery_in">
+    			<div class="gallery_page">
+    			
+    				<div class="gallery_list gallery">
+						<ul class="fotofly_fn_masonry">
+							{% if fotos %}
+								{% for foto in fotos %}
+								
+								<li class="fotofly_fn_masonry_in">
+									<div class="item">
+										<a href="{{foto.foto.url}}"><img src="{{foto.foto.url}}" alt="" /></a>
+									</div>
+								</li>
+								{% endfor %}
+							{% else %}
+								<div><p>No hay fotos para mostrar</p></div>
+							{% endif %}
+							
+						</ul>
+    				</div>
+    				
+    				<!-- PAGINATION -->
+					<!-- <div class="fotofly_fn_pagination">
+						<div class="pagination">
+							<ul>
+								<li><a class="active" href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li class="next"><a href="#">Next</a></li>
+							</ul>
+						</div>
+					</div> -->
+					<!-- /PAGINATION -->
+    				
+    			</div>
+    		</div>
+    	</div>
+
+				
+    	
+    </div>
+    <!-- /CONTENT -->
+    
+    <!-- FOOTER -->
+    <footer class="fotofly_fn_footer">
+    	<div class="copyright">
+    		<span>Copyright {{texto}} . Hecho por <a href={{link}}> ChrisVis</a></span>
+    	</div>
+    </footer>
+    <!-- /FOOTER -->
+    
+	<a class="totop" href="#"><span class="line"></span></a>
+{% endblock %}

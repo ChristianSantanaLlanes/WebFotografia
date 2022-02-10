@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}    
+
+{% block content%}
+    <!-- CONTENT -->
+    <div class="fotofly_fn_content">
+    	
+    	<!-- FLEXSLIDER -->
+    	<div class="fotofly_fn_mainslider">
+    		<div class="flexslider">
+    			<ul class="slides">
+    				<li>
+    					<div class="overlay">
+    						<div class="overlay_img"></div>
+    						<div class="overlay_color"></div>
+    					</div>
+    				</li>
+    				<li>
+    					<div class="overlay">
+    						<div class="overlay_img"></div>
+    						<div class="overlay_color"></div>
+    					</div>
+    				</li>
+    				<li>
+    					<div class="overlay">
+    						<div class="overlay_img"></div>
+    						<div class="overlay_color"></div>
+    					</div>
+    				</li>
+    				<li>
+    					<div class="overlay">
+    						<div class="overlay_img"></div>
+    						<div class="overlay_color"></div>
+    					</div>
+    				</li>
+    				<li>
+    					<div class="overlay">
+    						<div class="overlay_img"></div>
+    						<div class="overlay_color"></div>
+    					</div>
+    				</li>
+    				<li>
+    					<div class="overlay">
+    						<div class="overlay_img"></div>
+    						<div class="overlay_color"></div>
+    					</div>
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+    	<!-- /FLEXSLIDER -->
+    	
+    	<!-- PORTFOLIO -->
+    	<div class="fotofly_fn_portfolio_wrap">
+    		<div class="fotofly_fn_portfolio_content">
+    			<div class="fotofly_fn_portfolio">
+    			
+    				<!-- MAIN TITLE -->
+					<div class="fotofly_fn_title">
+						<div class="fotofly_fn_title_content">
+							<span>Portafolio de trabajos
+							</span>
+						</div>
+					</div>
+					<!-- /MAIN TITLE -->
+
+					<!-- PORTFOLIO LIST -->
+					<div class="portfolio_list_wrap" data-col="">
+						<div class="portfolio_list">
+							
+							<ul>
+								{% for categoria in categorias %}
+									<li>
+										<div class="port_list_single">
+											<div class="port_img">
+												<img src="{{categoria.imagen.url}}" alt="" />
+											</div>
+											<div class="port_cat">
+												<a href="/portafolio/{{categoria.id}}">
+													<span class="text">{{categoria.nombre}}<span class="line"></span></span>
+												</a>
+											</div>
+										</div>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+						<!-- <div class="portfolio_btn">
+							<a href="#">Portafolio</a>
+						</div> -->
+					</div>
+					<!-- /PORTFOLIO LIST -->
+    		
+				</div>
+    		</div>
+    	</div>
+    	<!-- /PORTFOLIO -->
+    	
+    </div>
+    <!-- /CONTENT -->
+    
+    <!-- FOOTER -->
+    <footer class="fotofly_fn_footer">
+    	<div class="instagram">
+    		<div class="instagram_content">
+				
+    			<ul>
+    				<li class="follow">
+    					<div class="following">
+    						<img class="svg" src="{% static 'img/svg/Facebook-Logo.wine.svg' %}" alt="" />
+    						<h3><a href="#">@FotoFly</a></h3>
+    						<p>Siganme en Facebook</p>
+    					</div>
+    				</li>
+    				<li>
+    					<img src="{% static 'img/facebook/boda.jpg' %}" alt="" />
+    				</li>
+    				<li>
+    					<img src="{% static 'img/facebook/bebe.jpg' %}" alt="" />
+    				</li>
+    				<li>
+    					<img src="{% static 'img/facebook/estudiante.jpg' %}" alt="" />
+    				</li>
+    				<li>
+    					<img src="{% static 'img/facebook/graduacion.jpg' %}" alt="" />
+    				</li>
+    				<li>
+    					<img src="{% static 'img/facebook/nino.jpg' %}" alt="" />
+    				</li>
+    				<li>
+    					<img src="{% static 'img/facebook/nino2.jpg' %}" alt="" />
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+    	<div class="copyright">
+			<span>Copyright {{texto}} . Hecho por <a href={{link}}> ChrisVis</a></span>
+    	</div>
+    </footer>
+    <!-- /FOOTER -->
+    
+	<a class="totop" href="#"><span class="line"></span></a>
+	
+</div>
+<!-- / WRAPPER ALL -->
+{% endblock %}

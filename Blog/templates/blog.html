@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %} Blog {% endblock %}
+{% load static %}
+{% block content %}
+    <!-- CONTENT -->
+    <div class="fotofly_fn_content">
+    	
+    	<!-- BREADCRUMBS -->
+    	<div class="fotofly_fn_breadcrumbs">
+			<div class="fotofly_fn_breadcrumbs_content">
+				<div class="container">
+					<p>
+						<a href="/">Home</a>
+						/
+						<span>Blog</span>
+					</p>
+				</div>
+			</div>
+    	</div>
+    	<!-- /BREADCRUMBS -->
+    	
+    	<!-- BLOG -->
+    	<div class="fotofly_fn_blog_wrap">
+    		<div class="fotofly_fn_blog">
+    			<div class="blog">
+    				<div class="container">
+    					<div class="blog_wrapper">
+    						
+    						<div class="blog_content">
+								<ul class="fotofly_fn_masonry mypost">
+									{% if posts %}
+										{% for post in posts %}
+
+											<li class="fotofly_fn_masonry_in">
+												<div class="post">
+													<div class="img_holder">
+														<a href="/blog/blogsingle/{{post.id}}">
+															<img src="{{post.imagen.url}}" alt="" />
+														</a>
+													</div>
+													<div class="title_holder">
+														<span><a class="category" href="blog_single.html">{{post.categoria}}</a><span class="date">{{post.update}}</span></span>
+														<h3><a href="/blog/blogsingle/{{post.id}}">{{post.titulo}}</a></h3>
+														<p>{{post.contenido}}</p>
+													</div>
+												</div>
+											</li>
+										{% endfor %}
+									{% else %}
+											<div><p>No hay contenido que mostrar ya que no se han agregado posts</p></div>
+									{% endif %}
+
+								</ul>
+    						</div>
+    						
+    						<!-- PAGINATION -->
+    						<div class="fotofly_fn_pagination">
+    							<div class="pagination">
+									<ul>
+										<li><a class="active" href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li class="next"><a href="#">Next</a></li>
+									</ul>
+    							</div>
+    						</div>
+    						<!-- /PAGINATION -->
+    						
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- /BLOG -->
+    	
+    </div>
+    <!-- /CONTENT -->
+
+{% endblock %}
+    
+    <!-- FOOTER -->
+    <footer class="fotofly_fn_footer">
+    	<div class="copyright">
+    		<span>Copyright 2017. Designed by <a href="#">Frenify</a></span>
+    	</div>
+    </footer>
+    <!-- /FOOTER -->
+    
+	<a class="totop" href="#"><span class="line"></span></a>
+	
+</div>
+<!-- / WRAPPER ALL -->
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->	
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+<!-- /SCRIPTS -->
+
+</body>
+</html>

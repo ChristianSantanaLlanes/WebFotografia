@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% block title %} SingleBog {% endblock %}
+
+{% load static %}
+{% block content %}
+<style>
+	.fotofly_fn_blog_single_wrap .blog_single_wrapper .post_img .bg-img{
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		position: absolute;
+		z-index: 5;
+		
+		background-image: url({{post.imagen.url}});
+		background-position: center;
+		background-size: cover;
+	}
+
+</style>
+    <!-- CONTENT -->
+    <div class="fotofly_fn_content">
+    	
+    	<!-- BREADCRUMBS -->
+    	<div class="fotofly_fn_breadcrumbs">
+			<div class="fotofly_fn_breadcrumbs_content">
+				<div class="container">
+					<p>
+						<a href="/">Home</a>
+						/
+						<a href="/blog/">Blog</a>
+						/
+						<span>{{post.titulo}}</span>
+					</p>
+				</div>
+			</div>
+    	</div>
+    	
+    	<!-- BLOG SINGLE -->
+    	<div class="fotofly_fn_blog_single_wrap">
+    		<div class="fotofly_fn_blog_single">
+    			<div class="blog_single">
+    				<div class="container">
+    					<div class="blog_single_wrapper">
+    					
+    						<!-- POST IMAGE -->
+    						<div class="post_img">
+    							<div class="bg-img jarallax" data-speed=".55"></div>
+    						</div>
+    						<!-- /POST IMAGE -->
+    						
+    						<!-- POST CONTENT -->
+    						<div class="post_content">
+    							<div class="title_holder">
+    								<span><a href="#">{{post.categoria}}</a><span class="date">{{post.update}}</span></span>
+    								<h3>{{post.titulo}}</h3>
+    								<p class="post_intro">{{post.contenido}} </p>
+    								<!-- <p class="text">Cras cursus commodo nisl, eget facilisis ipsum molestie ac. Nullam vel sem congue, feugiat risus ut, efficitur velit. Nam tincidunt in mi at porttitor.Vivamus ullamcorper purus a purus dapibus pellentesque. Sed tristique pretium ipsum at commodo. Nullam viverra iaculis tortor, sed dictum mauris.</p>
+    								<p class="text">Nullam maximus eget odio nec elementum. Aliquam convallis in mauris vulputate mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis ultrices, mi non ultricies sagittis, sem erat consequat justo, ac imperdiet justo felis id felis. Fusce ac lacus lorem. Vivamus ullamcorper purus a purus dapibus pellentesque. Sed tristique pretium ipsum at commodo. Nullam viverra iaculis tortor, sed dictum mauris. </p> -->
+    							</div>
+    							<div class="fotofly_fn_tags">
+    								<label>Tags:</label>
+    								<em><a href="#">{{post.categoria}}</a></em>
+    							</div>
+    							<div class="fotofly_fn_social_icons">
+    								<label>Share:</label>
+    								<ul>
+    									<li>
+    										<a href="#">
+    											<i class="xcon-facebook-1"></i>
+    										</a>
+    									</li>
+    									<li>
+    										<a href="#">
+    											<i class="xcon-twitter-1"></i>
+    										</a>
+    									</li>
+    									<li>
+    										<a href="#">
+    											<i class="xcon-instagram"></i>
+    										</a>
+    									</li>
+    									<li>
+    										<a href="#">
+    											<i class="xcon-pinterest-1"></i>
+    										</a>
+    									</li>
+    									<li>
+    										<a href="#">
+    											<i class="xcon-gplus-1"></i>
+    										</a>
+    									</li>
+    								</ul>
+    							</div>
+    						</div>
+    						<!-- /POST CONTENT -->
+    						
+    						<!-- POST COMMENT -->
+    						<div class="fotofly_fn_comment_wrapper">
+    							<div class="fotofly_fn_comment">
+    								
+    								<!-- COMMENTS -->
+
+									
+    								<div class="comments">
+    								
+    									<div class="title_holder">
+											<h3>All Comments</h3>
+										</div>
+										{% if comentarios %}
+											<!-- #1 COMMENT -->
+											{% for comentario in comentarios %}
+												<div class="comment_single_wrap">
+													<div class="comment_single">
+														<div class="person_info">
+															<div class="info">
+																<div class="img_holder">
+																	<img src="{% static 'img/blog/single1-com1.jpg' %}" alt="" />
+																</div>
+															</div>
+														</div>
+														<div class="person_comment">
+															<div class="inner">
+																<h5>{{comentario.usuario}}</h5>
+																<!-- <span><span class="date">3 Month ago</span><a href="#">Reply</a></span> -->
+																<p>{{comentario.comentario}}</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											{% endfor %}
+										{% else %}
+											<div class="title_holder">
+												<h4>No hay comentarios</h3>
+											</div>
+										{% endif %}
+										<!-- /#1 COMMENT -->
+
+										<!-- #2 COMMENT -->
+										<!-- <div class="comment_single_wrap">
+											<div class="comment_single">
+												<div class="person_info">
+													<div class="info">
+														<div class="img_holder">
+															<img src="img/blog/single1-com2.jpg" alt="" />
+														</div>
+													</div>
+												</div>
+												<div class="person_comment">
+													<div class="inner">
+														<h5>Terry Duncan</h5>
+														<span><span class="date">1 Month ago</span><a href="#">Reply</a></span>
+														<p>Curabitur eget varius augue, non feugiat nisl. Duis fermentum est vel quam pharetra accumsan. Nulla sodales leo nisl, vel dignissim lacus finibus sit amet. Pellentesque elementum lacinia leo eget pulvinar. In hac habitasse platea dictumst. Vivamus sapien metus, congue sed ipsum eu, pharetra porta erat. Pellentesque vitae enim pharetra, pulvinar nibh eget, posuere diam. Donec aliquet venenatis mauris. Ut suscipit, turpis in iaculis porta, nibh neque ultrices justo, in consequat enim risus id nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ut ante mi. Donec vitae maximus lorem, ac facilisis diam. Aliquam semper justo arcu, quis mollis nibh auctor nec. Curabitur ac urna urna. Donec sagittis volutpat metus, et sagittis tortor. Nulla tincidunt nisl id sapien rhoncus, sit amet placerat turpis finibus.</p>
+													</div>
+												</div>
+											</div>
+										</div> -->
+										<!-- /#2 COMMENT -->
+    								</div>
+    								<!-- /COMMENTS -->
+										
+    								<!-- ADDING A COMMENT -->
+    								<div class="add_comment_wrap">
+    									<div class="add_comment">
+    										<div class="title_holder">
+    											<h3>Escriba su comentario</h3>
+    										</div>
+    										<form action="/blog/blogsingle/{{post.id}}" method="post"> {% csrf_token %}
+    											<div class="your-comment">
+    												<label>Tu comentario<span>*</span></label>
+    												<textarea id="creator-comment" cols="3" rows="10" placeholder="Es tan bueno..." name="comentario"></textarea> 
+    											</div>
+    											<div class="your-name">
+    												<label>Tu nombre<span>*</span></label>
+    												<input type="text" id="creator-name" placeholder="John Doe" name="nombre" /> 
+    											</div>
+    											<div class="your-email">
+    												<label>Tu correo<span>*</span></label>
+    												<input type="text" id="creator-email" placeholder="example@gmail.com" name="email" /> 
+    											</div>
+    											<div class="your-website">
+    												<label>Tu Web</label>
+    												<input type="text" id="creator-website" placeholder="http://www.myweb.com" name="web" /> 
+    											</div>
+    											<div class="your-button">
+    												<input type="submit" id="creator-submit" value="Enviar comentario" />
+    											</div>
+    										</form>
+    									</div>
+    								</div>
+    								<!-- /ADDING A COMMENT -->
+    								
+    							</div>
+    						</div>
+    						<!-- /POST COMMENT -->
+    						
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- /BLOG SINGLE -->
+    	
+    </div>
+    <!-- /CONTENT -->
+    
+    <!-- FOOTER -->
+    <footer class="fotofly_fn_footer">
+    	<div class="copyright">
+    		<span>Copyright 2017. Designed by <a href="#">Frenify</a></span>
+    	</div>
+    </footer>
+    <!-- /FOOTER -->
+    
+	<a class="totop" href="#"><span class="line"></span></a>
+	
+</div>
+{% endblock %}

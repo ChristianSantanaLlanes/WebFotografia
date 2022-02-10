@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} Portafolio {% endblock %}
+
+{% block content %}
+    <!-- CONTENT -->
+    <div class="fotofly_fn_content">
+    	
+    	<!-- PORTFLOIO #3 -->
+    	<div class="fotofly_fn_portfolio_third" data-title-style="">
+    		<div class="fotofly_fn_portfolio_third_inner">
+    			<div class="container">
+    				<div class="portfolio_third">
+    					<div class="title_holder">
+    						<h3>{{seccion.nombre}}</h3>
+    						<p>{{seccion.descripcion}}</p>
+    					</div>
+    					<div class="list_holder">
+    						<div class="list_inner">
+    							<ul class="fotofly_fn_masonry">
+									{% for album in albumes %}
+										<li class="fotofly_fn_masonry_in">
+											<div class="list">
+												<div class="img">
+													<img src="{{album.imagen.url}}" alt="" />
+												</div>
+												<div class="title">
+													<span><a href="#">{{seccion.nombre}}</a></span>
+													<h3><a href="/portafolio/portafoliosingle/{{album.id}}">{{album.nombre}}</a></h3>
+												</div>
+											</div>
+										</li>
+									{% endfor %}
+    								
+    							</ul>
+    						</div>
+    					</div>
+    					
+    					<!-- PAGINATION -->
+						<div class="fotofly_fn_pagination">
+							<div class="pagination">
+								<ul>
+									<li><a class="active" href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li class="next"><a href="#">Next</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- /PAGINATION -->
+    					
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- /PORTFLOIO #3 -->
+    	
+    </div>
+    <!-- /CONTENT -->
+    
+    <!-- FOOTER -->
+    <footer class="fotofly_fn_footer">
+    	<div class="copyright">
+    		<span>Copyright 2017. Designed by <a href="#">Frenify</a></span>
+    	</div>
+    </footer>
+    <!-- /FOOTER -->
+    
+	<a class="totop" href="#"><span class="line"></span></a>
+	
+</div>
+<!-- / WRAPPER ALL -->
+{% endblock %}
