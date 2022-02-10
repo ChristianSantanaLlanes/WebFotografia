@@ -41,10 +41,10 @@ def portafolio(request, id):
     seccion=Secciones.objects.filter(id=id)[0]
     albumes=Album.objects.filter(seccion=seccion)
     
-    return render(request, 'portfolio.html', {"seccion":seccion, "albumes":albumes})
+    return render(request, 'portfolio.html', {"texto":texto, "link":link, "seccion":seccion, "albumes":albumes})
 
 def portafolio_single(request, id):
     
     album=Album.objects.get(id=id)
     fotos=Fotos.objects.filter(album=album)
-    return render(request, 'portfolio_single.html', {"fotos":fotos, "album":album})
+    return render(request, 'portfolio_single.html', {"texto":texto, "link":link, "fotos":fotos, "album":album})
