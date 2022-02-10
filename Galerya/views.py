@@ -1,5 +1,5 @@
 from random import random
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 import datetime
 from .models import Fotos, Secciones, Album
 
@@ -25,7 +25,7 @@ def index(request):
 
 def about(request):
     
-    return render(request, 'about.html')
+    return render(request, 'about.html', {"texto":texto, "link":link})
 
 def galerya(request):
     
