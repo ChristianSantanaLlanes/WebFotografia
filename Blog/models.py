@@ -12,7 +12,7 @@ class Categoria(models.Model):
 class Post(models.Model):
     titulo=models.CharField(max_length=50, help_text='Con un limite de 50 caracteres')
     contenido=models.TextField(max_length=3000, help_text='Con un limite de 3000 caracteres')
-    imagen=models.ImageField(upload_to='media/blog', null=True, blank=True, help_text='Mande una foto pequena')
+    imagen=models.ImageField(upload_to='static/subidas/blog', null=True, blank=True, help_text='Mande una foto pequena')
     autor=models.ForeignKey(User, on_delete=models.CASCADE)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     create=models.DateTimeField(auto_now=True)
