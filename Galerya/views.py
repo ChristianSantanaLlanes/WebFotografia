@@ -1,7 +1,8 @@
 from random import random
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import datetime
 from .models import Fotos, Secciones, Album
+from .forms import Contacto
 
 def tiempo():
     t = datetime.datetime.now()
@@ -33,8 +34,18 @@ def galerya(request):
     return render(request, 'gallery.html', {"texto":texto, "link":link, "fotos":fotos})
 
 def contacto(request):
+    formulario=Contacto()
     
-    return render(request, 'contact.html')
+    if request.method=='POST':
+        formulario_contacto = Contacto(data=request.POST)
+        if formulario_contacto.is_valid():
+            nombre=request.POST.get('nombre')
+            email=request.POST.get('email')
+            asunto=request.POST.get('asunto')
+            mensaje=request.POST.get('mensaje')
+            return redirect('/contact/?valido')
+    else:
+        return render(request, 'contact.html', {"formulario":formulario})
 
 def portafolio(request, id):
     

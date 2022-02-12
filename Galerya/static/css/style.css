@@ -2889,7 +2889,7 @@ ul.vert_menu_list li ul li a:hover{
 .fotofly_fn_contact .contact__form .message{
 	margin-bottom: 26px;
 }
-.fotofly_fn_contact .fotofly_fn_contactsendbtn{
+.fotofly_fn_contact .boton_nuevo{
 	width: auto;
 	background-color: transparent;
 	border: 1px solid transparent;
@@ -2907,7 +2907,7 @@ ul.vert_menu_list li ul li a:hover{
 	     -o-transition: all .5s ease;
 	        transition: all .5s ease;
 }
-.fotofly_fn_contact .fotofly_fn_contactsendbtn:hover{
+.fotofly_fn_contact .boton_nuevo:hover{
 	border-bottom-color: transparent;
 }
 /*------------------------------------------------------------------*/ 

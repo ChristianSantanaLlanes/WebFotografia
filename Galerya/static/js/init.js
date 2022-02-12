@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 	
 	
 	fotofly_fn_mainnav_w();
-	fotofly_fn_contactsend();
+	// fotofly_fn_contactsend();
 	fotofly_fn_proofing();
 	fotofly_fn_miniboxes();
 	fotofly_fn_search();
@@ -109,7 +109,7 @@ function fotofly_fn_contactsend(){
 		}
 		else{
 			// Returns successful data submission message when the entered information is stored in database.
-			jQuery.post("modal/contact.php",{ xx_name: name, xx_email: email, xx_message:message, xx_subject: subject}, function(data) {
+			jQuery.post("/contact/",{ xx_name: name, xx_email: email, xx_message:message, xx_subject: subject}, function(data) {
 				
 				jQuery(".contact_form .returnmessage").append(data);//Append returned message to message paragraph
 				

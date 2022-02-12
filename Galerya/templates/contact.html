@@ -1,8 +1,15 @@
 {%extends 'base.html' %}
+{% load static %}
 
 {% block title %} Contacto {% endblock %}
 
 {% block content %}
+
+<style>
+	.contact__form li {
+		padding: 5px;
+	}
+</style>
 <!-- CONTENT -->
     <div class="fotofly_fn_content">
     	
@@ -44,38 +51,44 @@
 													</div>
 													
 													<div class="contact__form">
-														<form action="/" method="post" class="contact_form" id="contact_form">
+														
+
+														<form action="/contact/" method="POST" class="contact_form">{% csrf_token %}
 
 															<!-- RETURN MESSAGES -->
-															<div class="returnmessage" data-success="Tu mensaje fue recivido pronto nos comunicaremos con usted"></div>
+															{% if 'valido' in request.GET %}
+															<div>Su mensaje fue recivido pronto nos comunicaremos con usted</div>
+															{% endif %}
 															<div class="empty_notice"><span>Por favor complete todos los campos</span></div>
 															<!-- /RETURN MESSAGES -->
 															<ul>
 																<li>
 																	<div class="item">
-																		<input type="text" id="name" placeholder="Your Name"/>
+																		{{formulario.nombre}}
+											
 																	</div>
 																</li>
 																<li>
 																	<div class="item">
-																		<input type="text" id="email" placeholder="example@mail.com"/>
+																		{{formulario.email}}
 																	</div>
 																</li>
 																<li>
 																	<div class="item">
-																		<input type="text" id="subject" placeholder="Subject"/>
+																		{{formulario.asunto}}
 																	</div>
 																</li>
 															</ul>
 															<div class="clearfix"></div>
-															<div class="message">
-																<textarea id="message" placeholder="Message" cols="3" rows="5"></textarea>
+															<div class="message">{{formulario.mensaje}}
+																
 															</div>
 															
-															<div class="button">
-																<input type="button" class="fotofly_fn_contactsendbtn" value="Send Message" />
+															<div class="button boton_nuevo">
+																<input type="submit" value="Enviar Mensaje"  />
 															</div>
 														</form>
+														
 													</div>
 													
 													
